@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { showMoreAddresses } from '../actions';
 
-let ShowMoreButton = ({ isDisabled , dispatch }) => {
+const ShowMoreButton = ({ isDisabled , dispatch }) => {
   return (
     <button
       disabled={isDisabled}
@@ -12,11 +12,10 @@ let ShowMoreButton = ({ isDisabled , dispatch }) => {
     </button>
   )
 }
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ data, numberOfVisibleAdresses }) => {
   return {
-    isDisabled: state.visibleData.length === state.filteredData.length
+    isDisabled: data.length === numberOfVisibleAdresses
   }
 }
-ShowMoreButton = connect(mapStateToProps)(ShowMoreButton);
 
-export default ShowMoreButton;
+export default connect(mapStateToProps)(ShowMoreButton);

@@ -1,8 +1,8 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import { createStore, dispatch } from 'redux'
-import addressList from './reducers'
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, dispatch } from 'redux';
+import addressList from './reducers';
 import App from './containers/App';
 import { addAddresses } from './actions';
 import './index.css';
