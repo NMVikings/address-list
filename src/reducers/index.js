@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 
-const dataReducer = (state = {}, action) => {
+const dataReducer = (state = {data: []}, action) => {
   if (action.type === "ADD_DATA") {
-    return {...state, data: action.data};
+    return {...state, data: [...state.data, ...action.data]};
   }
   return state;
 }
