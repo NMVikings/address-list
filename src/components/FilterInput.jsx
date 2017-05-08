@@ -1,6 +1,14 @@
 import { connect } from 'react-redux';
+import { filterAddressList } from '../actions'
 import Input from './Input'
 
-const FilterInput = connect()(Input);
+const mapDispatchToProps = ( dispatch, { name }) => {
+  return {
+    onChange: (e) => {
+      dispatch(filterAddressList(name, e.target.value))
+    }
+  }
+}
+const FilterInput = connect(null, mapDispatchToProps)(Input);
 
 export default FilterInput;

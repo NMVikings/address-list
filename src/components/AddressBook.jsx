@@ -1,13 +1,17 @@
 import React from 'react';
 import AddressList from './AddressList';
 import AddressBookHeader from './AddressBookHeader';
+import ShowMoreButton from './ShowMoreButton';
 
-const AddressBook = ({ data, keys }) => {
+const AddressBook = ({ numberOfAvailableAddresses, data, keys }) => {
   return (
-    <table>
-      <AddressBookHeader keys={keys}/>
-      <AddressList data={data} />
-    </table>
+    <div>
+      <table>
+        <AddressBookHeader keys={keys}/>
+        <AddressList data={data} />
+      </table>
+      <ShowMoreButton numberOfAvailableAddresses={numberOfAvailableAddresses}/>
+    </div>
   );
 }
 export default AddressBook;

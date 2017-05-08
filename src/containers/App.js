@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import AddressBookWrapper from './AddressBookWrapper.jsx';
-import ShowMoreButton from '../components/ShowMoreButton'
 import logo from '../logo.svg';
 import './App.css';
 
@@ -14,7 +13,6 @@ const App = () => {
       <div className='App--content'>
         <AddressBookWrapper />
       </div>
-      <ShowMoreButton />
     </div>
   );
 };

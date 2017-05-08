@@ -12,9 +12,9 @@ const ShowMoreButton = ({ isDisabled , dispatch }) => {
     </button>
   )
 }
-const mapStateToProps = ({ data, numberOfVisibleAdresses }) => {
+const mapStateToProps = ({ numberOfVisibleAddresses }, { numberOfAvailableAddresses }) => {
   return {
-    isDisabled: data.length === numberOfVisibleAdresses
+    isDisabled: numberOfAvailableAddresses <= numberOfVisibleAddresses
   }
 }
 
