@@ -4,8 +4,8 @@ import AddressBook from '../components/AddressBook';
 
 const mapStateToProps = (state) => {
   return {
-    data: state.data,
-    keys: Object.keys(state.data[0])
+    data: state.visibleData,
+    keys: Object.keys(state.visibleData[0])
   }
 }
 const AddressBookWrapper = connect(mapStateToProps, null)(AddressBook);

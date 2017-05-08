@@ -1,10 +1,27 @@
 import { combineReducers } from 'redux';
+import { refreshData } from '../actions'
 
-const dataReducer = (state = {data: []}, action) => {
-  if (action.type === "ADD_DATA") {
-    return {...state, data: [...state.data, ...action.data]};
+const dataReducer = (state = {data:[], filteredData:[], visibleData:[], filters:[]}, action) => {
+  const filterData  = (data, filters) => {
+    return data;
   }
-  return state;
+  const showData = (data, amount = 10) => {
+    console.log(data, amount)
+    return data.slice(0, amount);
+  }
+  let newData, filteredData, visibleData;
+  switch (action.type) {
+    case 'ADD_ADDRESSES':
+      newData = [...state.data, ...action.data];
+      filteredData = filterData(newData);
+      visibleData = showData(filteredData);
+      return {...state, data: newData, filteredData, visibleData};
+    case 'SHOW_MORE_ADDRESSES':
+      visibleData = showData(state.filteredData, state.visibleData.length + action.number);
+      return {...state, visibleData}
+    default:
+      return state;
+  }
 }
 
 const addressList = dataReducer;
