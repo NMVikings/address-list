@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { filterAddressList } from '../actions'
-import Input from './Input'
+import Input from '../components/Input'
 
 const mapDispatchToProps = ( dispatch, { name }) => {
   return {

@@ -1,5 +1,5 @@
 import React from 'react';
-import FilterInput from './FilterInput';
+import FilterInput from '../containers/FilterInput';
 
 const AddressInputRow = ({ keys }) => {
   return (
