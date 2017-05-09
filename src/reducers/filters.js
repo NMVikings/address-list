@@ -1,7 +1,13 @@
 export default (state = {}, action) => {
+  const filterCreator= (column, value) => {
+    return (data) =>
+      data.filter(item =>
+        item[column].toLowerCase().includes(value.trim().toLowerCase())
+      )
+  }
   switch (action.type) {
     case 'FILTER_ADDRESS_LIST':
-      const newFilter = (data) => data.filter(item => item[action.column].toLowerCase().includes(action.value.trim().toLowerCase()));
+      const newFilter = filterCreator(action.column, action.value);
       return {...state, [action.column]: newFilter};
     default:
       return state;
