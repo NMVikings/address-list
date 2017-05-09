@@ -10,7 +10,9 @@ const AddressBook = ({ numberOfAvailableAddresses, data, keys }) => {
         <AddressBookHeader keys={keys}/>
         <AddressList data={data} />
       </table>
-      <ShowMoreButton numberOfAvailableAddresses={numberOfAvailableAddresses}/>
+      <ShowMoreButton numberOfAvailableAddresses={numberOfAvailableAddresses}>
+        <span>Show More</span>
+      </ShowMoreButton>
     </div>
   );
 }

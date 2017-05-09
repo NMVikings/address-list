@@ -1,21 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { showMoreAddresses } from '../actions';
+import Button from './Button';
 
-const ShowMoreButton = ({ isDisabled , dispatch }) => {
-  return (
-    <button
-      disabled={isDisabled}
-      onClick={() => dispatch(showMoreAddresses())}
-    >
-      Show more
-    </button>
-  )
-}
 const mapStateToProps = ({ numberOfVisibleAddresses }, { numberOfAvailableAddresses }) => {
   return {
     isDisabled: numberOfAvailableAddresses <= numberOfVisibleAddresses
   }
 }
 
-export default connect(mapStateToProps)(ShowMoreButton);
+const mapDispatchToProps = ( dispatch ) => {
+  return {
+    onClick: () =>
+      dispatch(showMoreAddresses())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Button);
