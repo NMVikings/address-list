@@ -5,10 +5,10 @@ export const addAddresses = (data) => {
   }
 }
 
-export const sortAddressList = (column, direction) => {
+export const sortAddressList = (id, direction) => {
   return {
     type: 'SORT_ADDRESS_LIST',
-    column,
+    id,
     direction
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import AddressList from './AddressList';
 import AddressBookHeader from './AddressBookHeader';
-import ShowMoreButton from './ShowMoreButton';
+import ShowMoreButton from '../containers/ShowMoreButton';
 
 class AddressBook extends React.Component {
   constructor(props) {
