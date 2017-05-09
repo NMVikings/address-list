@@ -1,7 +1,7 @@
 import React from 'react';
 import AddressList from './AddressList';
 import AddressBookHeader from './AddressBookHeader';
-import Button from './Button';
+import ShowMoreButton from './ShowMoreButton';
 
 class AddressBook extends React.Component {
   constructor(props) {
@@ -10,6 +10,26 @@ class AddressBook extends React.Component {
       numberOfVisibleAddresses: 10
     }
     this.showMoreAddresses = this.showMoreAddresses.bind(this);
+  }
+
+  render() {
+    const { numberOfAvailableAddresses, data, keys } = {...this.props};
+    const ShowMoreButtonData = {
+      isDisabled: numberOfAvailableAddresses === this.state.numberOfVisibleAddresses,
+      onClick: this.showMoreAddresses
+    };
+    const visibleData = data.slice(0, this.state.numberOfVisibleAddresses);
+    return (
+      <div>
+        <table>
+          <AddressBookHeader keys={keys}/>
+          <AddressList data={visibleData}/>
+        </table>
+        <ShowMoreButton {...ShowMoreButtonData}>
+          <span>Show More</span>
+        </ShowMoreButton>
+      </div>
+    );
   }
 
   showMoreAddresses() {
@@ -36,24 +56,6 @@ class AddressBook extends React.Component {
       })
     }
   }
-  render() {
-    const { numberOfAvailableAddresses, data, keys } = {...this.props};
-    const ShowMoreButtonData = {
-      isDisabled: numberOfAvailableAddresses === this.state.numberOfVisibleAddresses,
-      onClick: this.showMoreAddresses
-    };
-    const visibleData = data.slice(0, this.state.numberOfVisibleAddresses);
-    return (
-      <div>
-        <table>
-          <AddressBookHeader keys={keys}/>
-          <AddressList data={visibleData}/>
-        </table>
-        <Button {...ShowMoreButtonData}>
-          <span>Show More</span>
-        </Button>
-      </div>
-    );
-  }
+
 }
 export default AddressBook;
