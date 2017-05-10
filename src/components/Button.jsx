@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Button = ({ isDisabled, onClick, children}) => {
+const Button = ({ isActive = false, isDisabled, onClick, children}) => {
   return (
     <button
       onClick={onClick}
-      disabled={isDisabled}
+      disabled={isDisabled || isActive}
+      className={isActive ? 'button-active' : ''}
     >
       {children}
     </button>

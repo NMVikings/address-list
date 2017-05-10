@@ -1,10 +1,10 @@
 import React from 'react';
-import FilterInput from '../containers/FilterInput';
+import AddressInputItem from './AddressInputItem';
 
 const AddressInputRow = ({ keys }) => {
   return (
     <tr>
-      {keys.map(k => <th key={k}><FilterInput name={k}/></th>)}
+      {keys.map(k => <AddressInputItem key={k} id={k}/>)}
     </tr>)
 };
 

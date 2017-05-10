@@ -1,5 +1,5 @@
-export default (state = (data) => data, action) => {
-  const compareGenerator = (id = 'name', direction = true) => {
+export const createSorter = (id, direction) => {
+  const createComparator = (id = 'name', direction = true) => {
     const compare = (obj1, obj2) => {
       if (obj1[id] > obj2[id]) {
         return direction ? 1 : -1;
@@ -11,14 +11,17 @@ export default (state = (data) => data, action) => {
     }
     return compare;
   }
+  const sorter = (data) => data.sort(createComparator(id, direction))
+  return sorter;
+}
 
-  const sortGenerator = (compare) => (data) => data.sort(compare);
-
+export default (state = {id: 'name', direction: true}, action) => {
   switch (action.type) {
     case 'SORT_ADDRESS_LIST':
-      return sortGenerator(compareGenerator(action.id, action.direction))
+      const {id, direction} = action;
+      return {id: id, direction: direction};
     case 'REFRESH_ADDRESS_LIST':
-      return (data) => data;
+      return {id: 'name', direction: true};
     default:
       return state;
   }

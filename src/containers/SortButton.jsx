@@ -13,4 +13,10 @@ const mapDispatchToProps = ( dispatch, { id, direction }) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Button);
+const mapStateToProps = ({ sort }, { id, direction}) => {
+  return {
+    isActive: sort.id === id && sort.direction === direction
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Button);

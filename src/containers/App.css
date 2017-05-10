@@ -43,6 +43,10 @@ input {
   width: 100%;
 }
 
+.button-active {
+  box-shadow: 0 0 2px 1px skyblue;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { createFilters } from '../reducers/filters';
+import { createSorter } from '../reducers/sort';
 import AddressBook from '../components/AddressBook';
 
 const mapStateToProps = ({data, sort, filters}) => {
-  const filteredData = Object.keys(filters).reduce((previousData, item) => filters[item](previousData), data);
-  const sortedData = sort(filteredData);
+  const filteredData = createFilters(filters).reduce((previousData, filter) => filter(previousData), data);
+  const sortedData = createSorter(sort.id, sort.direction)(filteredData);
   return {
     data: sortedData,
     numberOfAvailableAddresses: filteredData.length,
