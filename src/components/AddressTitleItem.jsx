@@ -1,6 +1,6 @@
 import React from 'react';
-import SortButtonUp from './SortButtonUp';
-import SortButtonDown from './SortButtonDown';
+import SortButtonUp from '../containers/SortButtonUp';
+import SortButtonDown from '../containers/SortButtonDown';
 
 const AddressTitleItem = ({ id }) => {
   return (

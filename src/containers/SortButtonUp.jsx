@@ -1,5 +1,5 @@
 import React from 'react';
-import SortButton from '../containers/SortButton';
+import SortButton from './SortButton';
 
 const SortButtonUp = (props) => (<SortButton {...props} direction={true} />);
 
