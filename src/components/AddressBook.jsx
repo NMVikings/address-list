@@ -22,7 +22,7 @@ class AddressBook extends React.Component {
     return (
       <div>
         <table>
-          <AddressBookHeader keys={keys}/>
+          <AddressBookHeader keys={['checkbox', ...keys]}/>
           <AddressList data={visibleData}/>
         </table>
         <ShowMoreButton {...ShowMoreButtonData}>

@@ -30,8 +30,14 @@ export const showMoreAddresses = (number = 10) => {
 
 export const combineAddresses = (id_list) => {
   return {
-    type: 'COMBINE_ADDRESSES',
-    id_list
+    type: 'COMBINE_ADDRESSES'
+  }
+}
+
+export const updateCombineList = (id) => {
+  return {
+    type: 'UPDATE_COMBINE_LIST',
+    id
   }
 }
 
