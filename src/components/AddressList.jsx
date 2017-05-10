@@ -1,10 +1,10 @@
 import React from 'react';
-import AddressListItem from './AddressListItem';
+import AddressListRow from './AddressListRow';
 
 const AddressList = ({ data }) => {
   return (
     <tbody>
-      {data.map((item, index) => <AddressListItem key={index} data={item} />)}
+      {data.map((item, index) => <AddressListRow key={index} data={item} />)}
     </tbody>);
 }
 

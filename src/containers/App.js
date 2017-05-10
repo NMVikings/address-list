@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AddressBookWrapper from './AddressBookWrapper.jsx';
 import RefreshAddressListButton from './RefreshAddressListButton';
+import GlobalFilterInput from './GlobalFilterInput';
 import logo from '../logo.svg';
 import './App.css';
 
@@ -10,6 +11,7 @@ const App = () => {
       <div className='App--header'>
         <RefreshAddressListButton>Refresh</RefreshAddressListButton>
         <h2>Address-book</h2>
+        <GlobalFilterInput />
       </div>
       <div className='App--content'>
         <AddressBookWrapper />

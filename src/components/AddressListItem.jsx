@@ -1,11 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { highlightText } from './Highlighter';
 
-const AddressListItem = ({ data }) => {
+const AddressListItem = ({ text }) => {
   return (
-    <tr>
-      {Object.keys(data).map((item, index) => <td key={index}>{data[item]}</td>)}
-    </tr>
+    <td>
+      {text}
+    </td>
   )
 }
 
-export default AddressListItem;
+const mapStateToProps = ({ filters }, { text }) => {
+  const highlightedText = highlightText(text, filters.global);
+  return {
+    text: <span>{highlightedText}</span>
+  };
+}
+export default connect(mapStateToProps)(AddressListItem);

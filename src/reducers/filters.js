@@ -13,6 +13,14 @@ export default (state = {}, action) => {
 
 export const createFilters = (filters) => {
   const createFilter = (column, value) => {
+    if (column === 'global') {
+      return (data) => data.filter(item =>
+        Object.keys(item).reduce((prevAcc, key) =>
+          item[key].includes(value) || prevAcc,
+          false
+        )
+      );
+    };
     return (data) =>
       data.filter(item =>
         item[column].toLowerCase().includes(value.trim().toLowerCase())

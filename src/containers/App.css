@@ -41,6 +41,13 @@ tr:first-child th {
 
 input {
   width: 100%;
+  max-width: 254px;
+}
+.highlited_text-local {
+  background: yellow;
+}
+.highlited_text-global {
+  background: bluesky;
 }
 
 .button-active {
