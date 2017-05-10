@@ -17,6 +17,8 @@ export default (state = (data) => data, action) => {
   switch (action.type) {
     case 'SORT_ADDRESS_LIST':
       return sortGenerator(compareGenerator(action.id, action.direction))
+    case 'REFRESH_ADDRESS_LIST':
+      return (data) => data;
     default:
       return state;
   }

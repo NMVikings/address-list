@@ -9,6 +9,8 @@ export default (state = {}, action) => {
     case 'FILTER_ADDRESS_LIST':
       const newFilter = filterCreator(action.column, action.value);
       return {...state, [action.column]: newFilter};
+    case 'REFRESH_ADDRESS_LIST':
+      return {}
     default:
       return state;
   }

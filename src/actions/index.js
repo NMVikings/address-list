@@ -34,3 +34,9 @@ export const combineAddresses = (id_list) => {
     id_list
   }
 }
+
+export const refreshAddressList = () => {
+  return {
+    type: 'REFRESH_ADDRESS_LIST'
+  }
+}
