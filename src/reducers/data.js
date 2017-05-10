@@ -37,7 +37,7 @@ export default (state = [], action) => {
       const newState = [...state.filter(item => !addressesToCombine.includes(item)), newAddress];
       return newState;
     case 'REFRESH_ADDRESS_LIST':
-      return action.data;
+      return addIds(action.data);
     default:
       return state;
   }
