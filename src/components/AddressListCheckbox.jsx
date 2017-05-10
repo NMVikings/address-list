@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateCombineList } from '../actions';
 
-const AddressListCheckbox = ({ id, onClick = (e) => console.log(e.target.value) }) => {
+const AddressListCheckbox = ({ isChecked, id, onClick }) => {
   return (
     <td>
-      <input name='combine' type='checkbox' value={id} onClick={onClick} />
+      <input name='combine' type='checkbox' checked={isChecked} value={id} onClick={onClick} />
     </td>
   )
 };
@@ -15,4 +15,9 @@ const mapDispatchToProps = (dispatch, { id }) => {
     onClick: (e) => dispatch(updateCombineList(e.target.value))
   }
 }
-export default connect(null, mapDispatchToProps)(AddressListCheckbox);
+const mapStateToProps = ({ combineList }, { id }) => {
+  return {
+    isChecked: combineList.includes(String(id))
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(AddressListCheckbox);
