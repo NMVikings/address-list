@@ -28,9 +28,10 @@ export const showMoreAddresses = (number = 10) => {
   }
 }
 
-export const combineAddresses = (id_list) => {
+export const combineAddresses = (combineList) => {
   return {
-    type: 'COMBINE_ADDRESSES'
+    type: 'COMBINE_ADDRESSES',
+    combineList
   }
 }
 
@@ -41,8 +42,9 @@ export const updateCombineList = (id) => {
   }
 }
 
-export const refreshAddressList = () => {
+export const refreshAddressList = (data) => {
   return {
-    type: 'REFRESH_ADDRESS_LIST'
+    type: 'REFRESH_ADDRESS_LIST',
+    data
   }
 }

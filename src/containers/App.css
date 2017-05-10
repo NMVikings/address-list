@@ -25,6 +25,7 @@ table {
   width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
+  word-wrap: break-word;
 }
 
 table, th, td {
@@ -34,14 +35,22 @@ table, th, td {
 th,td {
   padding: 5px;
 }
+td {
+  white-space: pre-wrap;
+}
 
 tr:first-child th {
   border-bottom-color: transparent;
 }
 
-input {
+input[type="text"] {
   width: 100%;
   max-width: 254px;
+}
+
+input[type="checkbox"] {
+  width: 30px;
+  height: 30px;
 }
 .highlited_text-local {
   background: yellow;

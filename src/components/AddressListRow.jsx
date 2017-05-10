@@ -5,8 +5,15 @@ import AddressListCheckbox from './AddressListCheckbox';
 const AddressListRow = ({ id, data }) => {
   return (
     <tr>
-      <AddressListCheckbox id={id} />
-      {Object.keys(data).map((item, index) => <AddressListItem text={data[item]} id={item} key={index} />)}
+      {Object.keys(data).map((item, index) => {
+        if (item === 'id') {
+          return (
+            <AddressListCheckbox key={index} id={data[item]} />
+          )
+        }
+        return (<AddressListItem text={data[item]} id={item} key={index} />)
+      })
+      }
     </tr>
   )
 }

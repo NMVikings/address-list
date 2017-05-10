@@ -5,7 +5,14 @@ import { updateCombineList } from '../actions';
 const AddressListCheckbox = ({ isChecked, id, onClick }) => {
   return (
     <td>
-      <input name='combine' type='checkbox' checked={isChecked} value={id} onClick={onClick} />
+      <input
+        id={id}
+        name='combine'
+        type='checkbox'
+        checked={isChecked}
+        value={id}
+        onClick={onClick}
+      />
     </td>
   )
 };
