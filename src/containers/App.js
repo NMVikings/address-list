@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddressBookWrapper from './AddressBookWrapper.jsx';
+import AddressBook from '../components/AddressBook.jsx';
 import RefreshAddressListButton from './RefreshAddressListButton';
 import GlobalFilterInput from './GlobalFilterInput';
 import './App.css';
@@ -13,7 +13,7 @@ const App = () => {
         <GlobalFilterInput />
       </div>
       <div className='App--content'>
-        <AddressBookWrapper />
+        <AddressBook />
       </div>
     </div>
   );
