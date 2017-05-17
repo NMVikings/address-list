@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import filters from './filters';
+import { filters } from './filters';
+import { sort } from './sort';
 import data from './data';
-import sort from './sort';
 import combineList from './combineList';
 
 

@@ -1,27 +1,4 @@
-const combineAddresses = (addresses) => {
-  return addresses.reduce((newObj, item) => {
-    return Object.keys(item).reduce((newObj, key) => {
-      if (newObj.hasOwnProperty(key)) {
-        if (key === 'id') {
-          return {...newObj, [key]: [...newObj[key], item[key]]};
-        }
-        return {...newObj, [key]: `${newObj[key]}\n\n${item[key]}`};
-      } else if (!newObj.hasOwnProperty(key)){
-        if (key === 'id') {
-          return {...newObj, [key]: [item[key]]};
-        }
-        return {...newObj, [key]: item[key]};
-      }
-      return newObj;
-    }, newObj);
-  }, {});
-};
-
-const addIds = (array) =>
-  array.map((item, index) => ({...item, id: String(index)}));
-
-
-export default (state = [], action) => {
+const dataReducer = (state = [], action) => {
   let addressesToCombine, newAddress, newState;
   switch (action.type) {
   case 'ADD_ADDRESSES':
@@ -41,3 +18,27 @@ export default (state = [], action) => {
     return state;
   }
 };
+
+const addIds = (array) =>
+  array.map((item, index) => ({...item, id: String(index)}));
+
+const combineAddresses = (addresses) => {
+  return addresses.reduce((newObj, item) => {
+    return Object.keys(item).reduce((newObj, key) => {
+      if (newObj.hasOwnProperty(key)) {
+        if (key === 'id') {
+          return {...newObj, [key]: [...newObj[key], item[key]]};
+        }
+        return {...newObj, [key]: `${newObj[key]}\n\n${item[key]}`};
+      } else if (!newObj.hasOwnProperty(key)){
+        if (key === 'id') {
+          return {...newObj, [key]: [item[key]]};
+        }
+        return {...newObj, [key]: item[key]};
+      }
+      return newObj;
+    }, newObj);
+  }, {});
+};
+
+export default dataReducer;

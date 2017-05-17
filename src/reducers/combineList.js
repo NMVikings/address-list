@@ -1,4 +1,4 @@
-export default (state = [], action) => {
+const combineListReducer =  (state = [], action) => {
   switch (action.type) {
   case 'UPDATE_COMBINE_LIST':
     if (state.includes(action.id)) {
@@ -11,3 +11,5 @@ export default (state = [], action) => {
     return state;
   }
 };
+
+export default combineListReducer;

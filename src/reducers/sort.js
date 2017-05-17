@@ -1,21 +1,17 @@
-export const createSorter = (id, direction) => {
-  const createComparator = (id = 'name', direction = true) => {
-    const compare = (obj1, obj2) => {
-      if (obj1[id] > obj2[id]) {
-        return direction ? 1 : -1;
-      }
-      if (obj1[id] < obj2[id]) {
-        return direction ? -1 : 1;
-      }
-      return 0;
-    };
-    return compare;
+const sortAddresses = (data, id = 'name', direction = true) => {
+  const compare = (obj1, obj2) => {
+    if (obj1[id] > obj2[id]) {
+      return direction ? 1 : -1;
+    }
+    if (obj1[id] < obj2[id]) {
+      return direction ? -1 : 1;
+    }
+    return 0;
   };
-  const sorter = (data) => data.sort(createComparator(id, direction));
-  return sorter;
+  return data.sort(compare);
 };
 
-export default (state = {id: 'name', direction: true}, {type, id, direction}) => {
+const sort = (state = {id: 'name', direction: true}, {type, id, direction}) => {
   switch (type) {
   case 'SORT_ADDRESS_LIST':
     return {id: id, direction: direction};
@@ -24,4 +20,10 @@ export default (state = {id: 'name', direction: true}, {type, id, direction}) =>
   default:
     return state;
   }
+};
+
+
+export {
+  sortAddresses,
+  sort
 };

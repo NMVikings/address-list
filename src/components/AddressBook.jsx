@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createFilters } from '../reducers/filters';
-import { createSorter } from '../reducers/sort';
+import { sortAddresses } from '../reducers/sort';
 import AddressList from './AddressList';
 import AddressBookHeader from './AddressBookHeader';
-import Button from '../containers/Button';
+import Button from './Button';
 
 class AddressBook extends React.Component {
   constructor(props) {
@@ -68,7 +68,7 @@ class AddressBook extends React.Component {
 
 const mapStateToProps = ({data, sort, filters}) => {
   const filteredData = createFilters(filters).reduce((previousData, filter) => filter(previousData), data);
-  const sortedData = createSorter(sort.id, sort.direction)(filteredData);
+  const sortedData = sortAddresses(filteredData, sort.id, sort.direction);
   return {
     data: sortedData,
     numberOfAvailableAddresses: filteredData.length,
