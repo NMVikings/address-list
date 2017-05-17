@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import AddressBookWrapper from './AddressBookWrapper.jsx';
 import RefreshAddressListButton from './RefreshAddressListButton';
 import GlobalFilterInput from './GlobalFilterInput';
-import logo from '../logo.svg';
 import './App.css';
 
 const App = () => {
