@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { highlightText } from './Highlighter';
+import { highlight } from './Highlighter';
 
 const AddressListItem = ({ text }) => {
   return (
@@ -11,7 +11,7 @@ const AddressListItem = ({ text }) => {
 };
 
 const mapStateToProps = ({ filters }, { text }) => {
-  const highlightedText = highlightText(text, filters.global);
+  const highlightedText = highlight(text, filters.global);
   return {
     text: <span>{highlightedText}</span>
   };

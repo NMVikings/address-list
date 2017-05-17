@@ -9,17 +9,25 @@ const filters =  (state = {}, action) => {
   }
 };
 
+const checkStringEntry = (element, string) => {
+  if (typeof element === 'string') {
+    return element.includes(string);
+  } else if (element instanceof Array) {
+    return element.map(str => str.includes(string));
+  }
+};
+
 const createFilters = (filters) => {
   const createFilter = (column, value) => {
     if (column === 'global') {
       return data => data.filter(item =>
         Object.keys(item).reduce((prevAcc, key) => {
-          return item[key].includes(value) || prevAcc;
+          return checkStringEntry(item[key], value) || prevAcc;
         }, false));
     }
     return data =>
       data.filter(item =>
-        item[column].toLowerCase().includes(value.trim().toLowerCase())
+        checkStringEntry(item[column].toLowerCase(), value.trim().toLowerCase())
       );
   };
 

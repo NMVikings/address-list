@@ -26,15 +26,9 @@ const combineAddresses = (addresses) => {
   return addresses.reduce((newObj, item) => {
     return Object.keys(item).reduce((newObj, key) => {
       if (newObj.hasOwnProperty(key)) {
-        if (key === 'id') {
-          return {...newObj, [key]: [...newObj[key], item[key]]};
-        }
-        return {...newObj, [key]: `${newObj[key]}\n\n${item[key]}`};
-      } else if (!newObj.hasOwnProperty(key)){
-        if (key === 'id') {
-          return {...newObj, [key]: [item[key]]};
-        }
-        return {...newObj, [key]: item[key]};
+        return {...newObj, [key]: [...newObj[key], item[key]]};
+      } else if (!newObj.hasOwnProperty(key)) {
+        return {...newObj, [key]: [item[key]]};
       }
       return newObj;
     }, newObj);
