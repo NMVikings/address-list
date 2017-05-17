@@ -1,3 +1,21 @@
+const combineAddresses = (addresses) => {
+  return addresses.reduce((newObj, item) => {
+    return Object.keys(item).reduce((newObj, key) => {
+      if (newObj.hasOwnProperty(key)) {
+        return {...newObj, [key]: [...newObj[key], item[key]]};
+      } else if (!newObj.hasOwnProperty(key)) {
+        return {...newObj, [key]: [item[key]]};
+      }
+      return newObj;
+    }, newObj);
+  }, {});
+};
+
+
+const addIds = (array) =>
+  array.map((item, index) => ({...item, id: String(index)}));
+
+
 const dataReducer = (state = [], action) => {
   let addressesToCombine, newAddress, newState;
   switch (action.type) {
@@ -17,22 +35,6 @@ const dataReducer = (state = [], action) => {
   default:
     return state;
   }
-};
-
-const addIds = (array) =>
-  array.map((item, index) => ({...item, id: String(index)}));
-
-const combineAddresses = (addresses) => {
-  return addresses.reduce((newObj, item) => {
-    return Object.keys(item).reduce((newObj, key) => {
-      if (newObj.hasOwnProperty(key)) {
-        return {...newObj, [key]: [...newObj[key], item[key]]};
-      } else if (!newObj.hasOwnProperty(key)) {
-        return {...newObj, [key]: [item[key]]};
-      }
-      return newObj;
-    }, newObj);
-  }, {});
 };
 
 export default dataReducer;

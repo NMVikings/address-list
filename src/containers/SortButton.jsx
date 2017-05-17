@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import { sortAddressList } from '../actions';
 import Button from '../components/Button';

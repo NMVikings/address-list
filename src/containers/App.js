@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import AddressBook from '../components/AddressBook.jsx';
 import RefreshAddressListButton from './RefreshAddressListButton';
 import GlobalFilterInput from './GlobalFilterInput';
-import './App.css';
 
 const App = () => {
   return (
