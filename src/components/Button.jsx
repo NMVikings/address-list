@@ -9,7 +9,7 @@ const Button = ({ isActive = false, isDisabled, onClick, children}) => {
     >
       {children}
     </button>
-  )
-}
+  );
+};
 
 export default Button;

@@ -6,7 +6,6 @@ const AddressListCheckbox = ({ isChecked, id, onClick }) => {
   return (
     <td>
       <input
-        id={id}
         name='combine'
         type='checkbox'
         checked={isChecked}
@@ -14,17 +13,17 @@ const AddressListCheckbox = ({ isChecked, id, onClick }) => {
         onClick={onClick}
       />
     </td>
-  )
+  );
 };
 
-const mapDispatchToProps = (dispatch, { id }) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     onClick: (e) => dispatch(updateCombineList(e.target.value))
-  }
-}
+  };
+};
 const mapStateToProps = ({ combineList }, { id }) => {
   return {
     isChecked: combineList.includes(String(id))
-  }
-}
+  };
+};
 export default connect(mapStateToProps, mapDispatchToProps)(AddressListCheckbox);

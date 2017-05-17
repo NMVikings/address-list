@@ -6,7 +6,7 @@ const AddressTitleRow = ({ keys }) => {
     <tr>
       {keys.map(k => <AddressTitleItem key={k} id={k} />)}
     </tr>
-  )
+  );
 };
 
 export default AddressTitleRow;

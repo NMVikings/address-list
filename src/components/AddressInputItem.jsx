@@ -8,13 +8,13 @@ const AddressInputItem = ({ id }) => {
       <th>
         <CombineButton />
       </th>
-    )
+    );
   }
   return (
     <th>
       <FilterInput name={ id }/>
     </th>
-  )
-}
+  );
+};
 
 export default AddressInputItem;

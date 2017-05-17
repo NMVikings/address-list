@@ -5,7 +5,8 @@ const AddressInputRow = ({ keys }) => {
   return (
     <tr>
       {keys.map(k => <AddressInputItem key={k} id={k}/>)}
-    </tr>)
+    </tr>
+  );
 };
 
 export default AddressInputRow;

@@ -8,7 +8,7 @@ const AddressBookHeader = ({ keys }) => {
       <AddressTitleRow keys={keys} />
       <AddressInputRow keys={keys} />
     </thead>
-  )
-}
+  );
+};
 
 export default AddressBookHeader;

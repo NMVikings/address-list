@@ -16,7 +16,7 @@ const AddressTitleItem = ({ id }) => {
       { id }
       <SortButtonDown id={ id }>Down</SortButtonDown>
     </th>
-  )
-}
+  );
+};
 
 export default AddressTitleItem;

@@ -7,13 +7,13 @@ const AddressListItem = ({ text }) => {
     <td>
       {text}
     </td>
-  )
-}
+  );
+};
 
 const mapStateToProps = ({ filters }, { text }) => {
   const highlightedText = highlightText(text, filters.global);
   return {
     text: <span>{highlightedText}</span>
   };
-}
+};
 export default connect(mapStateToProps)(AddressListItem);

@@ -2,20 +2,19 @@ import React from 'react';
 import AddressListItem from './AddressListItem';
 import AddressListCheckbox from './AddressListCheckbox';
 
-const AddressListRow = ({ id, data }) => {
+const AddressListRow = ({ data }) => {
   return (
     <tr>
-      {Object.keys(data).map((item, index) => {
-        if (item === 'id') {
-          return (
-            <AddressListCheckbox key={index} id={data[item]} />
-          )
+      {Object.keys(data).map((key, index) => {
+        if (key === 'id') {
+          return (<AddressListCheckbox key={index} id={data[key]} />);
         }
-        return (<AddressListItem text={data[item]} id={item} key={index} />)
+
+        return (<AddressListItem text={data[key]} key={index} />);
       })
       }
     </tr>
-  )
-}
+  );
+};
 
 export default AddressListRow;
