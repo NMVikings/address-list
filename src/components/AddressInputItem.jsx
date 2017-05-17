@@ -1,12 +1,12 @@
 import React from 'react';
 import FilterInput from '../containers/FilterInput';
-import CombineButton from '../containers/CombineButton';
+import CombineAddressesButton from './CombineAddressesButton';
 
 const AddressInputItem = ({ id }) => {
   if (id === 'id') {
     return (
       <th>
-        <CombineButton />
+        <CombineAddressesButton />
       </th>
     );
   }

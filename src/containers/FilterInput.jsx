@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
 import { filterAddressList } from '../actions';
-import { getValue } from '../reducers/filters'
+import { getValue } from '../reducers/filters';
 import Input from '../components/Input';
 
 const mapDispatchToProps = ( dispatch, { name }) => {
   return {
     onChange: (e) => {
-      dispatch(filterAddressList(name, e.target.value))
+      dispatch(filterAddressList(name, e.target.value));
     }
-  }
-}
+  };
+};
 
 const mapStateToProps = ({ filters }, { name }) => {
   const value = getValue(filters, name);
@@ -18,8 +18,9 @@ const mapStateToProps = ({ filters }, { name }) => {
   }
   return {
     value: getValue(filters, name)
-  }
-}
+  };
+};
+
 const FilterInput = connect(mapStateToProps, mapDispatchToProps)(Input);
 
 export default FilterInput;

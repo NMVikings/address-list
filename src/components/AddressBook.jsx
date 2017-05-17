@@ -4,7 +4,7 @@ import { createFilters } from '../reducers/filters';
 import { createSorter } from '../reducers/sort';
 import AddressList from './AddressList';
 import AddressBookHeader from './AddressBookHeader';
-import ShowMoreButton from '../containers/ShowMoreButton';
+import Button from '../containers/Button';
 
 class AddressBook extends React.Component {
   constructor(props) {
@@ -16,20 +16,21 @@ class AddressBook extends React.Component {
 
   render() {
     const { numberOfAvailableAddresses, data, keys } = this.props;
-    const ShowMoreButtonData = {
+    const ButtonData = {
       isDisabled: numberOfAvailableAddresses === this.state.numberOfVisibleAddresses,
       onClick: this.showMoreAddresses
     };
     const visibleData = data.slice(0, this.state.numberOfVisibleAddresses);
+
     return (
       <div>
         <table>
           <AddressBookHeader keys={keys}/>
           <AddressList data={visibleData}/>
         </table>
-        <ShowMoreButton {...ShowMoreButtonData}>
+        <Button {...ButtonData}>
           <span>Show More</span>
-        </ShowMoreButton>
+        </Button>
       </div>
     );
   }
