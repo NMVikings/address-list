@@ -43,7 +43,7 @@ class AddressBook extends React.Component {
     this.setState({
       numberOfVisibleAddresses: newNumber
     });
-  }
+  };
 
   componentWillReceiveProps({ numberOfAvailableAddresses }) {
     const { numberOfVisibleAddresses } = this.state;
