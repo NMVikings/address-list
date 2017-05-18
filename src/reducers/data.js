@@ -14,7 +14,7 @@ const combineAddresses = (addresses) => {
 
 
 const addIds = (array) =>
-  array.map((item, index) => ({...item, id: String(index)}));
+  array.map((item, index) => ({id: String(index), ...item}));
 
 
 const dataReducer = (state = [], action) => {
