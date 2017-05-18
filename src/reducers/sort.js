@@ -1,9 +1,9 @@
 const sortAddresses = (data, id = 'name', direction = true) => {
   const compare = (obj1, obj2) => {
-    if (obj1[id] > obj2[id]) {
+    if (obj1[id][0] > obj2[id][0]) {
       return direction ? 1 : -1;
     }
-    if (obj1[id] < obj2[id]) {
+    if (obj1[id][0] < obj2[id][0]) {
       return direction ? -1 : 1;
     }
     return 0;

@@ -1,13 +1,14 @@
 const combineAddresses = (addresses) => {
   return addresses.reduce((newObj, item) => {
-    return Object.keys(item).reduce((newObj, key) => {
+    const mergeObjects = (newObj, key) => {
       if (newObj.hasOwnProperty(key)) {
-        return {...newObj, [key]: [...newObj[key], item[key]]};
+        return {...newObj, [key]: [...newObj[key], ...item[key]]};
       } else if (!newObj.hasOwnProperty(key)) {
-        return {...newObj, [key]: [item[key]]};
+        return {...newObj, [key]: [...item[key]]};
       }
       return newObj;
-    }, newObj);
+    };
+    return Object.keys(item).reduce(mergeObjects, newObj);
   }, {});
 };
 
