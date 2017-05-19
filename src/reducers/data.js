@@ -13,8 +13,12 @@ const combineAddresses = (addresses) => {
 };
 
 
-const addIds = (array) =>
-  array.map((item, index) => ({id: String(index), ...item}));
+const addIds = (array) => array.map((item, index) => {
+  if (item.hasOwnProperty('id')) {
+    return item;
+  }
+  return ({...item, id: String(index)});
+});
 
 
 const dataReducer = (state = [], action) => {

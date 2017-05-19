@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createFilters } from '../reducers/filters';
+import { filterData } from '../reducers/filters';
 import { sortAddresses } from '../reducers/sort';
 import AddressList from './AddressList';
 import AddressBookHeader from './AddressBookHeader';
@@ -67,7 +67,7 @@ class AddressBook extends React.Component {
 
 
 const mapStateToProps = ({data, sort, filters}) => {
-  const filteredData = createFilters(filters).reduce((previousData, filter) => filter(previousData), data);
+  const filteredData = filterData(filters, data);
   const sortedData = sortAddresses(filteredData, sort.id, sort.direction);
   return {
     data: sortedData,
