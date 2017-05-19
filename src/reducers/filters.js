@@ -14,9 +14,6 @@ const checkStringEntry = (element, string) =>
 
 
 const filterData = (filters, data) => {
-
-
-
   const filterItem = (item) => {
     const goThrowSingleFilter = (acc, key) => {
       let newAcc = false;
@@ -45,36 +42,9 @@ const filterData = (filters, data) => {
     const goThrowAllFilters = (item) => Object.keys(filters).reduce(goThrowSingleFilter, true);
 
     return goThrowAllFilters(item);
-  }
-
-
-  const filteredData = data.filter(filterItem);
-  // item => {
-  //   Object.keys(filters).reduce((acc, key) => {
-  //     if (key === 'global') {
-  //       Object.keys(item).reduce((prevAcc, key) => {
-  //         if (key ===)
-  //       })
-  //     }
-  //   }, false);
-  // });
-  const createFilter = (column, value) => {
-    if (column === 'global') {
-      return data => data.filter(item =>
-        Object.keys(item).reduce((prevAcc, key) => {
-          if (key === 'id') {
-            return prevAcc;
-          }
-          return checkStringEntry(item[key], value) || prevAcc;
-        }, false));
-    }
-    return data =>
-      data.filter(item =>
-        checkStringEntry(item[column], value)
-      );
   };
 
-
+  const filteredData = data.filter(filterItem);
 
   return filteredData;
 };
