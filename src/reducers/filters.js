@@ -13,7 +13,7 @@ const checkStringEntry = (element, string) =>
   element.reduce((acc, str) => acc || str.includes(string), false);
 
 
-const filterData = (filters, data) => {
+const filterAddresses = (filters, data) => {
   const filterItem = (item) => {
     const goThrowSingleFilter = (acc, key) => {
       let newAcc = false;
@@ -22,40 +22,38 @@ const filterData = (filters, data) => {
         return acc;
       }
 
-      const filtrator = filters[key];
+      const filtration = filters[key];
       const value = item[key];
 
       if (key !== 'global') {
-        newAcc = checkStringEntry(value, filtrator);
+        newAcc = checkStringEntry(value, filtration);
       } else if (key === 'global') {
         newAcc = Object.keys(item).reduce((prevAcc, itemKey) => {
           if (itemKey === 'id') {
             return prevAcc;
           }
-          return checkStringEntry(item[itemKey], filtrator)  || prevAcc;
+          return checkStringEntry(item[itemKey], filtration)  || prevAcc;
         }, false);
       }
 
       return newAcc && acc;
     };
 
-    const goThrowAllFilters = (item) => Object.keys(filters).reduce(goThrowSingleFilter, true);
+    const goThrowAllFilters = () => Object.keys(filters).reduce(goThrowSingleFilter, true);
 
-    return goThrowAllFilters(item);
+    return goThrowAllFilters();
   };
 
-  const filteredData = data.filter(filterItem);
-
-  return filteredData;
+  return data.filter(filterItem);
 };
 
 const getValue = (filters, column) => {
   return filters[column];
 };
 
+export default filters;
 
 export {
-  filters,
-  filterData,
+  filterAddresses,
   getValue
 };

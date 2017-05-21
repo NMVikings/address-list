@@ -1,4 +1,4 @@
-const sortAddresses = (data, id = 'name', direction = true) => {
+const sortAddresses = (data, {id = 'name', direction = true}) => {
   const compare = (obj1, obj2) => {
     if (obj1[id][0] > obj2[id][0]) {
       return direction ? 1 : -1;
@@ -23,7 +23,7 @@ const sort = (state = {id: 'name', direction: true}, {type, id, direction}) => {
 };
 
 
+export default sort;
 export {
-  sortAddresses,
-  sort
+  sortAddresses
 };

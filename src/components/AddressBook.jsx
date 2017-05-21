@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { filterData } from '../reducers/filters';
-import { sortAddresses } from '../reducers/sort';
+import { getSelectedData } from '../reducers';
 import AddressList from './AddressList';
 import AddressBookHeader from './AddressBookHeader';
 import Button from './Button';
@@ -66,14 +65,13 @@ class AddressBook extends React.Component {
 }
 
 
-const mapStateToProps = ({data, sort, filters}) => {
-  const filteredData = filterData(filters, data);
-  const sortedData = sortAddresses(filteredData, sort.id, sort.direction);
+const mapStateToProps = (state) => {
+  const selectedData = getSelectedData(state);
   return {
-    data: sortedData,
-    numberOfAvailableAddresses: filteredData.length,
-    keys: Object.keys(data[0])
+    data: selectedData,
+    numberOfAvailableAddresses: selectedData.length,
+    keys: Object.keys(state.data[0])
   };
 };
 
-export default connect(mapStateToProps, null)(AddressBook);
+export default connect(mapStateToProps)(AddressBook);
